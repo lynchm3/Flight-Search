@@ -27,8 +27,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         //Need
-        //Origin airport (from, leaving from)
-        //Destination airport (to, arriving in)
+        //Origin airports (from, leaving from)
+        //Destination airports (to, arriving in)
         //1 or 2 dates (number and date)
 
         //Phase 2

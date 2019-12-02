@@ -1,6 +1,6 @@
 package com.marklynch.flightsearch.parsing
 
-import junit.framework.Assert.assertEquals
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import java.text.SimpleDateFormat
 import java.util.*
