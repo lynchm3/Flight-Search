@@ -5,7 +5,7 @@ import org.junit.Test
 import java.text.SimpleDateFormat
 import java.util.*
 
-class ParsingTest {
+class DateParsingTest {
     @Test
     fun `Test date parsing`() {
 
