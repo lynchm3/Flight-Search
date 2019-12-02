@@ -83,4 +83,45 @@ class ParsingTest {
         assertEquals("Month for second date incorrect", currentDateCalendar.get(Calendar.MONTH), parsedDateCalendar.get(Calendar.MONTH))
         assertEquals("Year for second date incorrect", currentDateCalendar.get(Calendar.YEAR), parsedDateCalendar.get(Calendar.YEAR))
     }
+
+    @Test
+    fun `Test date parsing the keyword today`() {
+
+        val currentDateCalendar:Calendar = Calendar.getInstance()
+
+        val searchTerm = """Manchester to Barcelona
+         for one adult
+         leaving today"""
+
+        val parsedDates = parseDatesCleanAndSort(searchTerm)
+        val parsedDateCalendar = Calendar.getInstance()
+
+        assertEquals("Incorrect amount of dates parsed", 1, parsedDates.size)
+
+        parsedDateCalendar.time = parsedDates[0]
+        assertEquals("Day of month for date incorrect", currentDateCalendar.get(Calendar.DAY_OF_MONTH), parsedDateCalendar.get(Calendar.DAY_OF_MONTH))
+        assertEquals("Month for date incorrect", currentDateCalendar.get(Calendar.MONTH), parsedDateCalendar.get(Calendar.MONTH))
+        assertEquals("Year for date incorrect", currentDateCalendar.get(Calendar.YEAR), parsedDateCalendar.get(Calendar.YEAR))
+    }
+
+    @Test
+    fun `Test date parsing the keyword tomorrow`() {
+
+        val tomorrowCalendar:Calendar = Calendar.getInstance()
+        tomorrowCalendar.add(Calendar.DATE, 1)
+
+        val searchTerm = """Manchester to Barcelona
+         for one adult
+         leaving tomorrow"""
+
+        val parsedDates = parseDatesCleanAndSort(searchTerm)
+        val parsedDateCalendar = Calendar.getInstance()
+
+        assertEquals("Incorrect amount of dates parsed", 1, parsedDates.size)
+
+        parsedDateCalendar.time = parsedDates[0]
+        assertEquals("Day of month for date incorrect", tomorrowCalendar.get(Calendar.DAY_OF_MONTH), parsedDateCalendar.get(Calendar.DAY_OF_MONTH))
+        assertEquals("Month for date incorrect", tomorrowCalendar.get(Calendar.MONTH), parsedDateCalendar.get(Calendar.MONTH))
+        assertEquals("Year for date incorrect", tomorrowCalendar.get(Calendar.YEAR), parsedDateCalendar.get(Calendar.YEAR))
+    }
 }
